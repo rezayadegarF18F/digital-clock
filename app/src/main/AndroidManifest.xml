@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.tamrin3digitalclock.rezaa.digitalclock">
+    package="com.digitalclock_reza_yadegar_2018315.rezaa.digitalclock">
 
     <application
         android:allowBackup="true"
