@@ -48,8 +48,6 @@
             android:fontFamily="@font/digital7"
             android:textColor="@color/text2"/>
 
-
-
         <TextView
             android:id="@+id/Hour_off"
             android:layout_width="wrap_content"
@@ -111,7 +109,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="90dp"
-            android:text="2017"
+            android:text="0000"
             android:textSize="40sp"
             android:fontFamily="@font/digital7"
             android:textColor="@color/colorAccent"/>
@@ -123,7 +121,7 @@
             android:layout_toRightOf="@id/Year"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="90dp"
-            android:text="17"
+            android:text="00"
             android:textSize="40sp"
             android:fontFamily="@font/digital7"
             android:textColor="@color/colorAccent"/>
@@ -135,7 +133,7 @@
             android:layout_toRightOf="@id/Mounth"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="90dp"
-            android:text="17"
+            android:text="00"
             android:textSize="40sp"
             android:fontFamily="@font/digital7"
             android:textColor="@color/colorAccent"/>
@@ -180,7 +178,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignLeft="@id/Week_Day_3_off"
             android:layout_marginTop="90dp"
-            android:text="t"
+            android:text="ﬁ"
             android:textSize="40sp"
             android:fontFamily="@font/led_counter"
             android:textColor="@color/colorAccent" />
@@ -192,7 +190,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignLeft="@id/Week_Day_2_off"
             android:layout_marginTop="90dp"
-            android:text="a"
+            android:text="ﬁ"
             android:textSize="40sp"
             android:fontFamily="@font/led_counter"
             android:textColor="@color/colorAccent" />
@@ -203,7 +201,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignLeft="@id/Week_Day_1_off"
             android:layout_marginTop="90dp"
-            android:text="s"
+            android:text="ﬁ"
             android:textSize="40sp"
             android:fontFamily="@font/led_counter"
             android:textColor="@color/colorAccent" />
@@ -258,7 +256,7 @@
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@id/Year"
             android:layout_marginTop="160dp"
-            android:text="03"
+            android:text="00"
             android:textSize="110sp"
             android:fontFamily="@font/digital7"
             android:textColor="@color/colorAccent"/>
@@ -280,7 +278,7 @@
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@id/Colon"
             android:layout_marginTop="160dp"
-            android:text="31"
+            android:text="00"
             android:textSize="110sp"
             android:fontFamily="@font/digital7"
             android:textColor="@color/colorAccent"/>
@@ -291,20 +289,22 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:layout_marginTop="205dp"
-            android:text="42"
+            android:text="00"
             android:textSize="55sp"
             android:fontFamily="@font/digital7"
             android:textColor="@color/colorAccent"/>
+
         <TextView
             android:id="@+id/Battery"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/Percent"
+            android:layout_alignBottom="@+id/Percent"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="270dp"
+            android:layout_alignParentStart="true"
             android:text="Battery"
-            android:textSize="20sp"
-            android:textColor="@color/text"/>
+            android:textColor="@color/text"
+            android:textSize="20sp" />
 
         <ImageView
             android:id="@+id/img1"
@@ -408,7 +408,7 @@
             android:scaleType="fitXY"
             android:tint="@color/text2"/>
         <TextView
-            android:id="@+id/percent"
+            android:id="@+id/Percent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -419,17 +419,28 @@
             android:textSize="20sp"
             android:fontFamily="@font/digital7"
             android:textColor="@color/colorAccent"/>
+
         <TextView
             android:id="@+id/percent_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@id/percent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="270dp"
+            android:layout_alignBaseline="@+id/Battery"
+            android:layout_alignBottom="@+id/Battery"
+            android:layout_toEndOf="@+id/Week_Day_2"
+            android:layout_toRightOf="@+id/Week_Day_2"
             android:text="%"
-            android:textSize="20sp"
-            android:textColor="@color/text"/>
+            android:textColor="@color/text"
+            android:textSize="20sp" />
 
     </RelativeLayout>
+
+    <Button
+        android:id="@+id/CShow"
+        android:layout_width="wrap_content"
+        android:layout_height="85dp"
+        android:layout_centerHorizontal="true"
+        android:background="@android:drawable/ic_lock_idle_alarm"
+        android:backgroundTint="@color/clock"
+        android:elevation="4dp"
+        android:layout_marginTop="350dp"/>
 </RelativeLayout>

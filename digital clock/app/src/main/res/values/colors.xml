@@ -6,4 +6,5 @@
     <color name="background">#000000</color>
     <color name="text">#aaaa</color>
     <color name="text2">#262626</color>
+    <color name="clock">#0099ff</color>
 </resources>
