@@ -8,3 +8,4 @@ software engineering in univesity of bojnord
 
 in this project i've designed a practice digital clock with RelativLayout that's sleeping. you can activate the clock for a moment by clicking on the clock button once.
 
+
