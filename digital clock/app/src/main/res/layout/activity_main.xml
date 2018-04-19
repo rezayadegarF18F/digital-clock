@@ -445,4 +445,29 @@
         android:elevation="4dp"
         android:layout_marginTop="350dp"/>
 
+    <RadioGroup
+        android:id="@+id/Clock_Frame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <RadioButton
+            android:id="@+id/_12Hour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="12 Hour clock"
+            android:textColor="@color/clock"
+            android:textSize="20sp" />
+        <RadioButton
+            android:id="@+id/_24Hour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="24 Hour clock"
+            android:textColor="@color/clock"
+            android:textSize="20sp" />
+    </RadioGroup>
+
 </RelativeLayout>

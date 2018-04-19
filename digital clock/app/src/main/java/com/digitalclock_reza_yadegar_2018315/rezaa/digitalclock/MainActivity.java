@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import java.util.Calendar;
 
@@ -40,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
 
     Calendar clock;
 
+    public boolean form_flag;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
         wd1 = findViewById(R.id.Week_Day_1);
         wd2 = findViewById(R.id.Week_Day_2);
         wd3 = findViewById(R.id.Week_Day_3);
+
+        form_flag = true;
 
         sounds = new MediaPlayer[2][60];
         for(int i=0 ; i<60 ; i++)
@@ -129,6 +134,23 @@ public class MainActivity extends AppCompatActivity {
                 hour_sound_play2();
             }
         });
+
+        RadioGroup clock_form = findViewById(R.id.Clock_Frame);
+        clock_form.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId)
+                {
+                    case R.id._24Hour :
+                        form_flag = false;
+                        break;
+                    case R.id._12Hour :
+                        form_flag = true;
+                        break;
+                }
+                hour_calc();
+            }
+        });
     }
 
     @SuppressLint({"WrongConstant", "SetTextI18n"})
@@ -152,35 +174,52 @@ public class MainActivity extends AppCompatActivity {
         else
             minute.setText(String.valueOf(mm));
 
-        if (hh < 10)
+        if (form_flag)
         {
-            hour.setText("0" + String.valueOf(hh));
-            AP = "AM";
-        }
-        else
-        {
-            if (hh < 12)
+            if (hh < 10)
             {
-                hour.setText(String.valueOf(hh));
-                AP = "AM";
-            }
-            else if (hh == 12)
-            {
-                hour.setText("12");
-                AP = "PM";
-            }
-            else if (hh < 22)
-            {
-                hh -= 12;
                 hour.setText("0" + String.valueOf(hh));
-                AP = "PM";
+                AP = "AM";
             }
             else
             {
-                hh -= 12;
-                hour.setText(String.valueOf(hh));
-                AP = "PM";
+                if (hh < 12)
+                {
+                    hour.setText(String.valueOf(hh));
+                    AP = "AM";
+                }
+                else if (hh == 12)
+                {
+                    hour.setText("12");
+                    AP = "PM";
+                }
+                else if (hh < 22)
+                {
+                    hh -= 12;
+                    hour.setText("0" + String.valueOf(hh));
+                    AP = "PM";
+                }
+                else if(hh == 24 | hh == 0)
+                {
+                    hh = 0;
+                    hour.setText("00");
+                    AP = "AM";
+                }
+                else
+                {
+                    hh -= 12;
+                    hour.setText(String.valueOf(hh));
+                    AP = "PM";
+                }
             }
+        }
+        else
+        {
+            if (hh < 10)
+                hour.setText("0" + String.valueOf(hh));
+            else
+                hour.setText(String.valueOf(hh));
+            AP = "--";
         }
 
         ap.setText(AP);
