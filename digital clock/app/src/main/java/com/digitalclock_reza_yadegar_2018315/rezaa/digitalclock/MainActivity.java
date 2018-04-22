@@ -1,11 +1,13 @@
 package com.digitalclock_reza_yadegar_2018315.rezaa.digitalclock;
 
 import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import java.util.Calendar;
@@ -41,6 +43,13 @@ public class MainActivity extends AppCompatActivity {
 
     Calendar clock;
 
+    RadioGroup clock_form;
+    RadioButton form_in_12;
+    RadioButton form_in_24;
+
+    SharedPreferences preferences;
+    SharedPreferences.Editor editor;
+
     public boolean form_flag;
 
     @Override
@@ -59,8 +68,6 @@ public class MainActivity extends AppCompatActivity {
         wd1 = findViewById(R.id.Week_Day_1);
         wd2 = findViewById(R.id.Week_Day_2);
         wd3 = findViewById(R.id.Week_Day_3);
-
-        form_flag = true;
 
         sounds = new MediaPlayer[2][60];
         for(int i=0 ; i<60 ; i++)
@@ -118,6 +125,28 @@ public class MainActivity extends AppCompatActivity {
         minute_sound = MediaPlayer.create(this ,R.raw.daghigheh);
         hour_sound = MediaPlayer.create(this ,R.raw.saat);
 
+        form_in_12 = findViewById(R.id._12Hour);
+        form_in_24 = findViewById(R.id._24Hour);
+
+        preferences = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
+        editor = preferences.edit();
+
+        form_flag = Boolean.parseBoolean(null);
+        form_flag = preferences.getBoolean("clock_form_flag" , Boolean.parseBoolean(null));
+
+        if(form_flag)
+        {
+            form_in_12.setChecked(true);
+        }
+        else
+        {
+            form_in_24.setChecked(true);
+            //in the first run of the app , this code will be executed ,
+            // because the form_flag isn't set
+            // and with initial definition of this variable , the value of false is stored in it
+            //and the clock is in 24 Hour form
+        }
+
         hour_calc();
 
         final Button sclock = findViewById(R.id.CShow);
@@ -135,18 +164,24 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        RadioGroup clock_form = findViewById(R.id.Clock_Frame);
+        clock_form = findViewById(R.id.Clock_Frame);
         clock_form.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId)
                 {
-                    case R.id._24Hour :
+                    case R.id._24Hour : {
                         form_flag = false;
+                        editor.putBoolean("clock_form_flag" , false);
+                        editor.apply();
                         break;
-                    case R.id._12Hour :
+                    }
+                    case R.id._12Hour : {
                         form_flag = true;
+                        editor.putBoolean("clock_form_flag" , true);
+                        editor.apply();
                         break;
+                    }
                 }
                 hour_calc();
             }

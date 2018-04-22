@@ -457,7 +457,6 @@
             android:id="@+id/_12Hour"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checked="true"
             android:text="12 Hour clock"
             android:textColor="@color/clock"
             android:textSize="20sp" />
