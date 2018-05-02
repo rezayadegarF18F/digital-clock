@@ -1,18 +1,24 @@
 package com.digitalclock_reza_yadegar_2018315.rezaa.digitalclock;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.Calendar;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MainActivityInterface {
 
     public int hh ;
     public int mm ;
@@ -36,19 +42,13 @@ public class MainActivity extends AppCompatActivity {
     public TextView hour;
     public TextView minute;
     public TextView second;
-    public TextView percent;
     public TextView wd1;
     public TextView wd2;
     public TextView wd3;
 
-    Calendar clock;
+    public Calendar clock;
 
-    RadioGroup clock_form;
-    RadioButton form_in_12;
-    RadioButton form_in_24;
-
-    SharedPreferences preferences;
-    SharedPreferences.Editor editor;
+    public Intent setting_intent;
 
     public boolean form_flag;
 
@@ -64,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
         hour = findViewById(R.id.Hour);
         minute = findViewById(R.id.Minute);
         second = findViewById(R.id.Second);
-        percent = findViewById(R.id.Percent);
         wd1 = findViewById(R.id.Week_Day_1);
         wd2 = findViewById(R.id.Week_Day_2);
         wd3 = findViewById(R.id.Week_Day_3);
@@ -125,27 +124,19 @@ public class MainActivity extends AppCompatActivity {
         minute_sound = MediaPlayer.create(this ,R.raw.daghigheh);
         hour_sound = MediaPlayer.create(this ,R.raw.saat);
 
-        form_in_12 = findViewById(R.id._12Hour);
-        form_in_24 = findViewById(R.id._24Hour);
-
-        preferences = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
-        editor = preferences.edit();
-
         form_flag = Boolean.parseBoolean(null);
-        form_flag = preferences.getBoolean("clock_form_flag" , Boolean.parseBoolean(null));
 
-        if(form_flag)
-        {
-            form_in_12.setChecked(true);
-        }
-        else
-        {
-            form_in_24.setChecked(true);
-            //in the first run of the app , this code will be executed ,
-            // because the form_flag isn't set
-            // and with initial definition of this variable , the value of false is stored in it
-            //and the clock is in 24 Hour form
-        }
+        setting_intent = new Intent(this , Setting.class);
+
+        final Button setting_temp = findViewById(R.id.Setting_EX);
+        setting_temp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(setting_intent);
+            }
+        });
+
+        form_flag = getIntent().getBooleanExtra("form_flag" , Boolean.parseBoolean(null));
 
         hour_calc();
 
@@ -164,28 +155,37 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        clock_form = findViewById(R.id.Clock_Frame);
-        clock_form.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId)
-                {
-                    case R.id._24Hour : {
-                        form_flag = false;
-                        editor.putBoolean("clock_form_flag" , false);
-                        editor.apply();
-                        break;
-                    }
-                    case R.id._12Hour : {
-                        form_flag = true;
-                        editor.putBoolean("clock_form_flag" , true);
-                        editor.apply();
-                        break;
-                    }
-                }
-                hour_calc();
-            }
-        });
+        Toast.makeText(this, String.valueOf(form_flag), Toast.LENGTH_SHORT).show();
+    }
+
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        form_flag = setting_intent.getBooleanExtra("form_flag" , Boolean.parseBoolean(null));
+    }
+
+    @Override
+    public boolean onCreateOptionMenu(Menu menu)
+    {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.action_bar_menu , menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionItemSelected(MenuItem item)
+    {
+        switch (item.getItemId()) {
+            // action with ID action_refresh was selected
+            case R.id.Setting:
+                Toast.makeText(this, "Refresh selected", Toast.LENGTH_SHORT)
+                        .show();
+                break;
+            default:
+                break;
+        }
+        return true;
     }
 
     @SuppressLint({"WrongConstant", "SetTextI18n"})

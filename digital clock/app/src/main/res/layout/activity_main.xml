@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.digitalclock_reza_yadegar_2018315.rezaa.digitalclock.MainActivity"
-    android:padding="15dp"
-    android:background="@color/background">
+    android:background="@color/background"
+    android:padding="15dp">
 
     <RelativeLayout
         android:id="@+id/R1"
@@ -84,24 +84,17 @@
             android:textSize="55sp"
             android:fontFamily="@font/digital7"
             android:textColor="@color/text2"/>
-        <TextView
-            android:id="@+id/percent_off"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="293dp"
-            android:layout_marginTop="275dp"
-            android:text="@string/_88"
-            android:textSize="20sp"
-            android:fontFamily="@font/digital7"
-            android:textColor="@color/text2"/>
+
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/R2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
         <TextView
             android:id="@+id/Year"
             android:layout_width="wrap_content"
@@ -110,102 +103,108 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="90dp"
-            android:text="@string/_0000"
-            android:textSize="40sp"
             android:fontFamily="@font/digital7"
-            android:textColor="@color/colorAccent"/>
+            android:text="@string/_0000"
+            android:textColor="@color/colorAccent"
+            android:textSize="40sp" />
+
         <TextView
             android:id="@+id/Mounth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_toRightOf="@id/Year"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="90dp"
-            android:text="@string/_00"
-            android:textSize="40sp"
+            android:layout_toRightOf="@id/Year"
             android:fontFamily="@font/digital7"
-            android:textColor="@color/colorAccent"/>
+            android:text="@string/_00"
+            android:textColor="@color/colorAccent"
+            android:textSize="40sp" />
+
         <TextView
             android:id="@+id/Day"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_toRightOf="@id/Mounth"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="90dp"
-            android:text="@string/_00"
-            android:textSize="40sp"
+            android:layout_toRightOf="@id/Mounth"
             android:fontFamily="@font/digital7"
-            android:textColor="@color/colorAccent"/>
+            android:text="@string/_00"
+            android:textColor="@color/colorAccent"
+            android:textSize="40sp" />
 
         <TextView
             android:id="@+id/Week_Day_3_off"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
             android:layout_marginTop="90dp"
-            android:text="@string/phi"
-            android:textSize="40sp"
             android:fontFamily="@font/led_counter"
-            android:textColor="@color/text2" />
+            android:text="@string/phi"
+            android:textColor="@color/text2"
+            android:textSize="40sp" />
+
         <TextView
             android:id="@+id/Week_Day_2_off"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_toLeftOf="@id/Week_Day_3_off"
             android:layout_marginTop="90dp"
-            android:text="@string/phi"
-            android:textSize="40sp"
+            android:layout_toLeftOf="@id/Week_Day_3_off"
             android:fontFamily="@font/led_counter"
-            android:textColor="@color/text2" />
+            android:text="@string/phi"
+            android:textColor="@color/text2"
+            android:textSize="40sp" />
+
         <TextView
             android:id="@+id/Week_Day_1_off"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_toLeftOf="@id/Week_Day_2_off"
             android:layout_marginTop="90dp"
-            android:text="@string/phi"
-            android:textSize="40sp"
+            android:layout_toLeftOf="@id/Week_Day_2_off"
             android:fontFamily="@font/led_counter"
-            android:textColor="@color/text2" />
+            android:text="@string/phi"
+            android:textColor="@color/text2"
+            android:textSize="40sp" />
+
         <TextView
             android:id="@+id/Week_Day_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
             android:layout_alignLeft="@id/Week_Day_3_off"
+            android:layout_alignParentTop="true"
             android:layout_marginTop="90dp"
-            android:text="@string/phi"
-            android:textSize="40sp"
             android:fontFamily="@font/led_counter"
-            android:textColor="@color/colorAccent" />
+            android:text="@string/phi"
+            android:textColor="@color/colorAccent"
+            android:textSize="40sp" />
 
         <TextView
             android:id="@+id/Week_Day_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
             android:layout_alignLeft="@id/Week_Day_2_off"
+            android:layout_alignParentTop="true"
             android:layout_marginTop="90dp"
-            android:text="@string/phi"
-            android:textSize="40sp"
             android:fontFamily="@font/led_counter"
-            android:textColor="@color/colorAccent" />
+            android:text="@string/phi"
+            android:textColor="@color/colorAccent"
+            android:textSize="40sp" />
+
         <TextView
             android:id="@+id/Week_Day_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
             android:layout_alignLeft="@id/Week_Day_1_off"
+            android:layout_alignParentTop="true"
             android:layout_marginTop="90dp"
-            android:text="@string/phi"
-            android:textSize="40sp"
             android:fontFamily="@font/led_counter"
-            android:textColor="@color/colorAccent" />
+            android:text="@string/phi"
+            android:textColor="@color/colorAccent"
+            android:textSize="40sp" />
 
         <TextView
             android:id="@+id/Year_Label"
@@ -213,33 +212,36 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="135dp"
             android:layout_marginLeft="30dp"
+            android:layout_marginTop="135dp"
             android:text="@string/year"
-            android:textSize="15sp"
-            android:textColor="@color/text"/>
+            android:textColor="@color/text"
+            android:textSize="15sp" />
+
         <TextView
             android:id="@+id/Mounth_Label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
             android:layout_alignLeft="@id/Mounth"
+            android:layout_alignParentTop="true"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="135dp"
             android:text="@string/mounth"
-            android:textSize="15sp"
-            android:textColor="@color/text"/>
+            android:textColor="@color/text"
+            android:textSize="15sp" />
+
         <TextView
             android:id="@+id/Day_Label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
             android:layout_alignLeft="@id/Day"
+            android:layout_alignParentTop="true"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="135dp"
             android:text="@string/day"
-            android:textSize="15sp"
-            android:textColor="@color/text"/>
+            android:textColor="@color/text"
+            android:textSize="15sp" />
+
         <TextView
             android:id="@+id/AP"
             android:layout_width="wrap_content"
@@ -248,190 +250,57 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="190dp"
             android:text="@string/dashdash"
-            android:textSize="30sp"
-            android:textColor="@color/colorAccent"/>
+            android:textColor="@color/colorAccent"
+            android:textSize="30sp" />
+
         <TextView
             android:id="@+id/Hour"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_toRightOf="@id/Year"
             android:layout_marginTop="160dp"
-            android:text="@string/_00"
-            android:textSize="110sp"
+            android:layout_toRightOf="@id/Year"
             android:fontFamily="@font/digital7"
-            android:textColor="@color/colorAccent"/>
+            android:text="@string/_00"
+            android:textColor="@color/colorAccent"
+            android:textSize="110sp" />
+
         <TextView
             android:id="@+id/Colon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_toRightOf="@id/Hour"
             android:layout_marginTop="160dp"
-            android:text="@string/doubledot"
-            android:textSize="110sp"
+            android:layout_toRightOf="@id/Hour"
             android:fontFamily="@font/digital7"
-            android:textColor="@color/colorAccent"/>
+            android:text="@string/doubledot"
+            android:textColor="@color/colorAccent"
+            android:textSize="110sp" />
+
         <TextView
             android:id="@+id/Minute"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_toRightOf="@id/Colon"
             android:layout_marginTop="160dp"
-            android:text="@string/_00"
-            android:textSize="110sp"
+            android:layout_toRightOf="@id/Colon"
             android:fontFamily="@font/digital7"
-            android:textColor="@color/colorAccent"/>
+            android:text="@string/_00"
+            android:textColor="@color/colorAccent"
+            android:textSize="110sp" />
+
         <TextView
             android:id="@+id/Second"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
+            android:layout_alignBaseline="@+id/Minute"
+            android:layout_alignBottom="@+id/Minute"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="205dp"
+            android:fontFamily="@font/digital7"
             android:text="@string/_00"
-            android:textSize="55sp"
-            android:fontFamily="@font/digital7"
-            android:textColor="@color/colorAccent"/>
-
-        <TextView
-            android:id="@+id/Battery"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/Percent"
-            android:layout_alignBottom="@+id/Percent"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:text="Battery"
-            android:textColor="@color/text"
-            android:textSize="20sp" />
-
-        <ImageView
-            android:id="@+id/img1"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@id/Battery"
-            android:layout_marginTop="275dp"
-            android:layout_marginLeft="10dp"
-            android:tint="@color/colorAccent"
-            app:srcCompat="@android:drawable/checkbox_off_background"
-            android:scaleType="fitXY" />
-        <ImageView
-            android:id="@+id/img2"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@id/img1"
-            android:layout_marginTop="275dp"
-            android:tint="@color/colorAccent"
-            app:srcCompat="@android:drawable/checkbox_off_background"
-            android:scaleType="fitXY" />
-        <ImageView
-            android:id="@+id/img3"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@id/img2"
-            android:layout_marginTop="275dp"
-            android:tint="@color/colorAccent"
-            app:srcCompat="@android:drawable/checkbox_off_background"
-            android:scaleType="fitXY" />
-        <ImageView
-            android:id="@+id/img4"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@id/img3"
-            android:layout_marginTop="275dp"
-            android:tint="@color/colorAccent"
-            app:srcCompat="@android:drawable/checkbox_off_background"
-            android:scaleType="fitXY" />
-        <ImageView
-            android:id="@+id/img5"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@id/img4"
-            android:layout_marginTop="275dp"
-            android:tint="@color/colorAccent"
-            app:srcCompat="@android:drawable/checkbox_off_background"
-            android:scaleType="fitXY" />
-        <ImageView
-            android:id="@+id/img6"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@id/img5"
-            android:layout_marginTop="275dp"
-            android:tint="@color/colorAccent"
-            app:srcCompat="@android:drawable/checkbox_off_background"
-            android:scaleType="fitXY" />
-        <ImageView
-            android:id="@+id/img7"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@id/img6"
-            android:layout_marginTop="275dp"
-            app:srcCompat="@android:drawable/checkbox_off_background"
-            android:scaleType="fitXY"
-            android:tint="@color/text2"/>
-        <ImageView
-            android:id="@+id/img8"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@id/img7"
-            android:layout_marginTop="275dp"
-            app:srcCompat="@android:drawable/checkbox_off_background"
-            android:scaleType="fitXY"
-            android:tint="@color/text2"/>
-        <ImageView
-            android:id="@+id/img9"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@id/img8"
-            android:layout_marginTop="275dp"
-            app:srcCompat="@android:drawable/checkbox_off_background"
-            android:scaleType="fitXY"
-            android:tint="@color/text2" />
-        <ImageView
-            android:id="@+id/img10"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@id/img9"
-            android:layout_marginTop="275dp"
-            app:srcCompat="@android:drawable/checkbox_off_background"
-            android:scaleType="fitXY"
-            android:tint="@color/text2"/>
-        <TextView
-            android:id="@+id/Percent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@id/img10"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="275dp"
-            android:text="57"
-            android:textSize="20sp"
-            android:fontFamily="@font/digital7"
-            android:textColor="@color/colorAccent"/>
-
-        <TextView
-            android:id="@+id/percent_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/Battery"
-            android:layout_alignBottom="@+id/Battery"
-            android:layout_toEndOf="@+id/Week_Day_2"
-            android:layout_toRightOf="@+id/Week_Day_2"
-            android:text="%"
-            android:textColor="@color/text"
-            android:textSize="20sp" />
+            android:textColor="@color/colorAccent"
+            android:textSize="55sp" />
 
     </RelativeLayout>
 
@@ -443,30 +312,14 @@
         android:background="@android:drawable/ic_lock_idle_alarm"
         android:backgroundTint="@color/clock"
         android:elevation="4dp"
-        android:layout_marginTop="350dp"/>
-
-    <RadioGroup
-        android:id="@+id/Clock_Frame"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_marginTop="330dp"/>
+    
+    <Button
+        android:id="@+id/Setting_EX"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
-
-        <RadioButton
-            android:id="@+id/_12Hour"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="12 Hour clock"
-            android:textColor="@color/clock"
-            android:textSize="20sp" />
-        <RadioButton
-            android:id="@+id/_24Hour"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="24 Hour clock"
-            android:textColor="@color/clock"
-            android:textSize="20sp" />
-    </RadioGroup>
+        android:background="@mipmap/ic_action_settings"/>
 
 </RelativeLayout>
